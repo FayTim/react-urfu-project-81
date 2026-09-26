@@ -14,9 +14,6 @@
   "author": "",
   "type": "module",
   "main": "dist/index.js",
-  "exports": {
-    ".": "./dist/index.js"
-  },
   "scripts": {
     "build": "tsc",
     "lint": "oxlint && oxfmt src --ignore-path=.oxfmtignore --check",
