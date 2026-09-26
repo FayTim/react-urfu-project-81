@@ -61,9 +61,9 @@ const capitalize = ([first, ...rest]: string): string => {
 };
 
 const formatAttrs = (attrs?: Record<string, string>): string => {
-  if (!attrs) return '';
+  if (!attrs) return "";
   return Object.entries(attrs)
     .map(([key, value]) => ` ${key}="${value}"`)
-    .join('');
+    .join("");
 };
 export default { formFor };
