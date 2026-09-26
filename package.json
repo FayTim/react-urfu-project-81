@@ -18,6 +18,7 @@
     "build": "tsc",
     "lint": "oxlint && oxfmt src --ignore-path=.oxfmtignore --check",
     "format": "oxfmt src --ignore-path=.oxfmtignore",
+    "prepare": "npm run build",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "dev": "tsx watch src/index.ts"
