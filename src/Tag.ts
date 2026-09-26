@@ -7,7 +7,7 @@ class Tag {
   toString() {
     return `<${this.name}${this.options === undefined ? "" : " " + this.buildOptions(this.options)}>`;
   }
-  private buildOptions = (options : object): string => {
+  private buildOptions = (options: object): string => {
     const entries: [string, string][] = Object.entries(options);
     const tags = entries.map(([key, value]) => `${key}="${value}"`);
     return tags.join(" ");
