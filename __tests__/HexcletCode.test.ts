@@ -8,8 +8,7 @@ const template = { name: 'rob', job: 'hexlet', gender: 'm' };
 
 describe('check formFor', () => {
     test('empty form', () => {
-        expect(HexletCode.formFor(template, {}, () => {
-        })).toEqual(readFixture('formEmpty.html'));
+        expect(HexletCode.formFor(template, {})).toEqual(readFixture('formEmpty.html'));
     })
     test('form with url', () => {
         expect(HexletCode.formFor(template, {url: '/users'}, () => {
@@ -39,6 +38,29 @@ describe('check formFor', () => {
             f.input('age');
         })).toThrow(`Field 'age' does not exist in the template.`);
     })
+    test('renders label with custom text', () => {
+        const result = HexletCode.formFor(template, {}, (f : FormBuilder) => {
+            f.input('name', { label: 'User' });
+        });
+
+        expect(result).toEqual(readFixture('formWithCustomLabelText.html'));
+    });
+
+    test('renders label with custom html attributes', () => {
+        const result = HexletCode.formFor(template, {}, (f : FormBuilder) => {
+            f.input('name', { labelHtml: { class: 'form-label', id: 'name-label' } });
+        });
+
+        expect(result).toEqual(readFixture('formWithCustomLabelHtml.html'));
+    });
+
+    test('renders label with both custom text and html attributes', () => {
+        const result = HexletCode.formFor(template, {}, (f : FormBuilder) => {
+            f.input('name', { label: 'User', labelHtml: { class: 'form-label', id: 'name-label' } });
+        });
+
+        expect(result).toEqual(readFixture('formWithCustomLabelFull.html'));
+    });
 })
 
 describe('submit', () => {
@@ -56,4 +78,11 @@ describe('submit', () => {
             f.submit('Wow');
         })).toEqual(readFixture('formSubmitWithName.html'));
     })
+    test('submit uses default value when not provided', () => {
+        const result = HexletCode.formFor(template, {}, (f : FormBuilder) => {
+            f.submit();
+        });
+
+        expect(result).toEqual(readFixture('formWithDefaultSubmit.html'));
+    });
 })

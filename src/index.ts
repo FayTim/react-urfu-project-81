@@ -56,8 +56,8 @@ const formFor = (
   return `<form method="${method}" action="${action}">${inner}</form>`;
 };
 
-const capitalize = ([first, ...rest]: string): string => {
-  return first ? first.toUpperCase() + rest.join("") : "";
+const capitalize = (str: string): string => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
 const formatAttrs = (attrs?: Record<string, string>): string => {
