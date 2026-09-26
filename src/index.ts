@@ -47,9 +47,9 @@ const formFor = (
   };
   build(builder);
 
-  const inner = fields.length === 0 ? "" : `\n    ${fields.join("\n    ")}\n`;
+  const inner = fields.length === 0 ? "" : `${fields.join("")}`;
 
-  return `<form action="${action}" method="${method}">${inner}</form>`;
+  return `<form method="${method}" action="${action}">${inner}</form>`;
 };
 
 const capitalize = ([first, ...rest]: string): string => {
