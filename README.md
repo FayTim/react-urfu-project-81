@@ -1,6 +1,7 @@
 # Генератор форм на Typescript
 
 [![hexlet-check](https://github.com/FayTim/react-urfu-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/FayTim/react-urfu-project-81/actions)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FayTim_react-urfu-project-81&metric=coverage)](https://sonarcloud.io/summary/new_code?id=FayTim_react-urfu-project-81)
 
 Библиотека, с помощью которой удобно создавать формы в шаблонах сайтов. Она заметно сокращает код описания формы за счет автоматической обработки ошибок и различных контролов.
 
