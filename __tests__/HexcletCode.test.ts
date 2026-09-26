@@ -15,11 +15,11 @@ test('check hexletcode from', () => {
 
 describe('check formFor', () => {
     test('empty form', () => {
-        expect(HexletCode.formFor(template, {}, (f) => {
+        expect(HexletCode.formFor(template, {}, () => {
         })).toEqual(readFixture('formEmpty.html'));
     })
     test('form with url', () => {
-        expect(HexletCode.formFor(template, {url: '/users'}, (f) => {
+        expect(HexletCode.formFor(template, {url: '/users'}, () => {
         })).toEqual(readFixture(('formWithUrl.html')));
     })
     test('form with input as textarea', () => {
