@@ -8,6 +8,7 @@ type BuilderOptions = {
   class?: string;
   rows?: number;
   cols?: number;
+  label?: string;
 };
 
 export type FormBuilder = {
@@ -30,7 +31,10 @@ const formFor = (
       if (value === undefined) {
         throw new Error(`Field '${name}' does not exist in the template.`);
       }
-      fields.push(`<label for="${name}">${capitalize(name)}</label>`);
+      const labelText = opts.label ?? capitalize(name);
+      fields.push(
+        `<label for="${name}" class="form-label" id="${name}-label">${labelText}</label>`,
+      );
       if (opts.as === "textarea") {
         fields.push(
           `<textarea cols="${opts.cols ?? 20}" rows="${opts.rows ?? 40}" name="${name}">${value}</textarea>`,
@@ -55,5 +59,7 @@ const formFor = (
 const capitalize = ([first, ...rest]: string): string => {
   return first ? first.toUpperCase() + rest.join("") : "";
 };
+
+const buildLabel = (data: Record<string, unknown>) => {}
 
 export default { formFor };
